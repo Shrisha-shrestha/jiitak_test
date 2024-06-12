@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router: ^8.2.0
+  provider: ^6.0.1
+  remixicon: ^1.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -74,11 +77,25 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: Noto Sans
+      fonts:
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Black.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Bold.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-ExtraBold.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-ExtraLight.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Light.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Medium.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Regular.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-SemiBold.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Thin.ttf
+
+
+
+
+
+
+        - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
