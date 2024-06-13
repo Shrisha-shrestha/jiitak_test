@@ -15,28 +15,6 @@ class ColorConstants {
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff0c0d0d);
   static const Color background = Color(0xfff5f5f7);
-  static const Color jobseeker500 = Color(0xfff3a82e);
-  static const Color jobseeker50 = Color(0xfffef5e7);
-  static const Color jobseeker950 = Color(0xff180f01);
-  static const Color jobseeker100 = Color(0xfffcebcf);
-  static const Color jobseeker200 = Color(0xfff9d79f);
-  static const Color jobseeker300 = Color(0xfff7c26e);
-  static const Color jobseeker400 = Color(0xfff4ae3e);
-  static const Color jobseeker600 = Color(0xffc17b0b);
-  static const Color jobseeker700 = Color(0xff915c08);
-  static const Color jobseeker800 = Color(0xff603e06);
-  static const Color jobseeker900 = Color(0xff301f03);
-  static const Color employer500 = Color(0xffb2512b);
-  static const Color employer50 = Color(0xfffaefea);
-  static const Color employer950 = Color(0xff150905);
-  static const Color employer100 = Color(0xfff5dfd6);
-  static const Color employer200 = Color(0xffebbead);
-  static const Color employer300 = Color(0xffe19e84);
-  static const Color employer400 = Color(0xffd77e5b);
-  static const Color employer600 = Color(0xffa44b28);
-  static const Color employer700 = Color(0xff7b381e);
-  static const Color employer800 = Color(0xff522514);
-  static const Color employer900 = Color(0xff29130a);
   static const Color gray500 = Color(0xffa8a9ad);
   static const Color gray50 = Color(0xfff2f2f3);
   static const Color gray950 = Color(0xff0c0d0d);
@@ -78,4 +56,8 @@ class ColorConstants {
   static const Color flowkitWhite = Color(0xffffffff);
   static const Color typePrimary = Color(0xe5000000);
   static const Color primaryColor = Color(0xFFFAAA14);
+  static const Color errorColor = Color(0xFFFF6262);
+  static const Color purpleBgColor = Color(0xFFA8B0FE);
+
+
 }

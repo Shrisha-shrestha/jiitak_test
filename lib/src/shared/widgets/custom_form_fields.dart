@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:jiitak_test/src/config/themes/color_constants.dart';
 import 'package:jiitak_test/src/config/themes/text_theme.dart';
@@ -7,261 +8,154 @@ import 'package:remixicon/remixicon.dart';
 
 // import '../../config/config.dart';
 
-// class CustomTextFormField extends StatelessWidget {
-//   const CustomTextFormField({
-//     super.key,
-//     required this.title,
-//     this.inputValidator,
-//     this.autoFocus = false,
-//     this.keyboardType,
-//     this.textInputAction = TextInputAction.next,
-//     this.controller,
-//     this.disableTextField = false,
-//     this.minLines,
-//     this.maxLines = 1,
-//     this.inputFormatters,
-//   });
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({
+    super.key,
+    required this.title,
+    required this.hintText,
+    this.inputValidator,
+    this.autoFocus = false,
+    this.keyboardType,
+    this.textInputAction = TextInputAction.next,
+    this.controller,
+    this.disableTextField = false,
+    this.minLines,
+    this.maxLines = 1,
+  });
 
-//   final String? Function(String? value, String label)? inputValidator;
-//   final bool autoFocus;
-//   final TextInputType? keyboardType;
-//   final String title;
-//   final TextInputAction textInputAction;
-//   final TextEditingController? controller;
-//   final bool disableTextField;
-//   final int? minLines;
-//   final int? maxLines;
-//   final List<TextInputFormatter>? inputFormatters;
-//   @override
-//   Widget build(BuildContext context) {
-//     final thm = Theme.of(context);
-//     return TextFormField(
-//       minLines: minLines,
-//       maxLines: minLines ?? maxLines,
-//       onTapOutside: (event) => FocusScope.of(context).unfocus(),
-//       validator: (value) => inputValidator!(value, title),
-//       autofocus: autoFocus,
-//       cursorColor: thm.colorScheme.appblack,
-//       keyboardType: keyboardType,
-//       textInputAction: textInputAction,
-//       controller: controller,
-//       enabled: !disableTextField,
-//       inputFormatters: inputFormatters,
-//       style: thm.textTheme.pMedium16Regular.copyWith(color: thm.colorScheme.appblack),
-//       decoration: InputDecoration(
-//         contentPadding: minLines == null ? EdgeInsets.zero : const EdgeInsets.symmetric(vertical: 8.0),
-//         prefixIconConstraints: const BoxConstraints(maxWidth: 16.0),
-//         prefixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
-//         suffixIconConstraints: const BoxConstraints(maxWidth: 16.0),
-//         suffixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
-//         alignLabelWithHint: true,
-//         labelText: title,
-//         floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray600)),
-//         labelStyle: MaterialStateTextStyle.resolveWith(
-//             (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray600))),
-//         enabledBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//         disabledBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//         errorBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//         focusedErrorBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//         focusedBorder:
-//             OutlineInputBorder(borderSide: BorderSide(color: thm.primaryColor), borderRadius: BorderRadius.circular(8.0)),
-//         errorStyle: const TextStyle(color: ColorConstants.danger500, fontSize: 10),
-//       ),
-//     );
-//   }
-// }
+  final String? Function(String? value, String label)? inputValidator;
+  final bool autoFocus;
+  final TextInputType? keyboardType;
+  final String title;
+  final String hintText;
+  final TextInputAction textInputAction;
+  final TextEditingController? controller;
+  final bool disableTextField;
+  final int? minLines;
+  final int? maxLines;
+  @override
+  Widget build(BuildContext context) {
+    final thm = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        RichText(
+          text: TextSpan(
+            text: title,
+            style: thm.textTheme.pMedium16Regular,
+            children: <TextSpan>[
+              TextSpan(text: '*    ', style: thm.textTheme.pXsmall12Medium.copyWith(color: ColorConstants.danger400)),
+            ],
+          ),
+        ),
+        const SizedBox(height: 4.0),
+        TextFormField(
+          minLines: minLines,
+          maxLines: minLines ?? maxLines,
+          onTapOutside: (event) => FocusScope.of(context).unfocus(),
+          validator: (value) => inputValidator!(value, title),
+          autofocus: autoFocus,
+          cursorColor: ColorConstants.black,
+          keyboardType: keyboardType,
+          textInputAction: textInputAction,
+          controller: controller,
+          enabled: !disableTextField,
+          style: thm.textTheme.pMedium16Regular.copyWith(color: ColorConstants.black),
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: MaterialStateTextStyle.resolveWith(
+                (states) => thm.textTheme.pSmall14Medium.merge(const TextStyle(color: ColorConstants.gray400))),
+            contentPadding: minLines == null ? EdgeInsets.zero : const EdgeInsets.symmetric(vertical: 8.0),
+            prefixIconConstraints: const BoxConstraints(maxWidth: 16.0),
+            prefixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
+            suffixIconConstraints: const BoxConstraints(maxWidth: 16.0),
+            suffixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
+            alignLabelWithHint: true,
+            labelText: null,
+            floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray400)),
+            labelStyle: MaterialStateTextStyle.resolveWith(
+                (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray400))),
+            enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: ColorConstants.gray200), borderRadius: BorderRadius.circular(8.0)),
+            disabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: ColorConstants.gray200), borderRadius: BorderRadius.circular(8.0)),
+            errorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: ColorConstants.danger500),
+                borderRadius: BorderRadius.circular(8.0)),
+            focusedErrorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: ColorConstants.danger500),
+                borderRadius: BorderRadius.circular(8.0)),
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: thm.primaryColor), borderRadius: BorderRadius.circular(8.0)),
+            errorStyle: const TextStyle(color: ColorConstants.danger500, fontSize: 10),
+          ),
+        ),
+      ],
+    );
+  }
+}
 
-// class CustomPasswordField extends StatelessWidget {
-//   CustomPasswordField({
-//     super.key,
-//     required this.title,
-//     this.prefixIcon = Remix.lock_2_line,
-//     this.inputValidator,
-//     this.autoFocus = false,
-//     this.textInputAction = TextInputAction.next,
-//     this.controller,
-//   });
+class CustomTextFormFieldWithPrefix extends StatelessWidget {
+  const CustomTextFormFieldWithPrefix({
+    super.key,
+    this.title,
+    required this.hintText,
+    required this.prefixIcon,
+    this.inputValidator,
+    this.autoFocus = false,
+    this.keyboardType,
+    this.textInputAction = TextInputAction.next,
+    this.controller,
+  });
 
-//   final String? Function(String? value, String label)? inputValidator;
-//   final bool autoFocus;
-//   final ValueNotifier<bool> obscureText = ValueNotifier(true);
-//   final IconData prefixIcon;
-//   final String title;
-//   final TextInputAction textInputAction;
-//   final TextEditingController? controller;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final thm = Theme.of(context);
-//     return ValueListenableBuilder(
-//       valueListenable: obscureText,
-//       builder: (context, obscureTextValue, child) => TextFormField(
-//         obscureText: obscureTextValue,
-//         validator: (value) => inputValidator!(value, title),
-//         onTapOutside: (event) => FocusScope.of(context).unfocus(),
-//         autofocus: autoFocus,
-//         cursorColor: ColorConstants.black,
-//         textInputAction: textInputAction,
-//         controller: controller,
-//         style: thm.textTheme.pMedium16Regular.copyWith(color: thm.colorScheme.appblack),
-//         decoration: InputDecoration(
-//           contentPadding: EdgeInsets.zero,
-//           alignLabelWithHint: true,
-//           prefixIconConstraints: const BoxConstraints(maxWidth: 16.0),
-//           prefixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
-//           // prefixIcon: Icon(prefixIcon, size: 20),
-//           // prefixIconColor: MaterialStateColor.resolveWith(
-//           //     (states) => states.contains(MaterialState.focused) ? thm.primaryColor : ColorConstants.gray600),
-//           suffixIcon: IconButton(
-//             splashRadius: 18,
-//             icon: Icon(obscureTextValue ? Remix.eye_close_line : Remix.eye_line, size: 20, color: ColorConstants.gray600),
-//             onPressed: () => obscureText.value = !obscureText.value,
-//           ),
-//           labelText: title,
-//           floatingLabelStyle: Theme.of(context).textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray600)),
-//           labelStyle: MaterialStateTextStyle.resolveWith(
-//               (states) => Theme.of(context).textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray600))),
-//           enabledBorder: OutlineInputBorder(
-//               borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//           disabledBorder: OutlineInputBorder(
-//               borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//           errorBorder: OutlineInputBorder(
-//               borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//           focusedErrorBorder: OutlineInputBorder(
-//               borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//           focusedBorder:
-//               OutlineInputBorder(borderSide: BorderSide(color: thm.primaryColor), borderRadius: BorderRadius.circular(8.0)),
-//           errorStyle: const TextStyle(color: ColorConstants.danger500, fontSize: 10),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class CustomTextFormFieldWithPrefix extends StatelessWidget {
-//   const CustomTextFormFieldWithPrefix({
-//     super.key,
-//     required this.title,
-//     required this.prefixIcon,
-//     this.inputValidator,
-//     this.autoFocus = false,
-//     this.keyboardType,
-//     this.textInputAction = TextInputAction.next,
-//     this.controller,
-//   });
-
-//   final String? Function(String? value, String label)? inputValidator;
-//   final bool autoFocus;
-//   final TextInputType? keyboardType;
-//   final IconData prefixIcon;
-//   final String title;
-//   final TextInputAction textInputAction;
-//   final TextEditingController? controller;
-//   @override
-//   Widget build(BuildContext context) {
-//     final thm = Theme.of(context);
-//     return TextFormField(
-//       onTapOutside: (event) => FocusScope.of(context).unfocus(),
-//       validator: (value) => inputValidator!(value, title),
-//       autofocus: autoFocus,
-//       cursorColor: ColorConstants.black,
-//       keyboardType: keyboardType,
-//       textInputAction: textInputAction,
-//       controller: controller,
-//       style: thm.textTheme.pMedium16Regular.copyWith(color: thm.colorScheme.appblack),
-//       decoration: InputDecoration(
-//         contentPadding: EdgeInsets.zero,
-//         alignLabelWithHint: true,
-//         prefixIcon: Icon(prefixIcon, size: 20),
-//         prefixIconColor: MaterialStateColor.resolveWith(
-//             (states) => states.contains(MaterialState.focused) ? thm.primaryColor : ColorConstants.gray600),
-//         labelText: title,
-//         floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray600)),
-//         labelStyle: MaterialStateTextStyle.resolveWith(
-//             (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray600))),
-//         enabledBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//         disabledBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//         errorBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//         focusedErrorBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//         focusedBorder:
-//             OutlineInputBorder(borderSide: BorderSide(color: thm.primaryColor), borderRadius: BorderRadius.circular(8.0)),
-//         errorStyle: const TextStyle(color: ColorConstants.danger500, fontSize: 10),
-//       ),
-//     );
-//   }
-// }
-
-// class CustomTextFormFieldWithSuffix extends StatelessWidget {
-//   const CustomTextFormFieldWithSuffix({
-//     super.key,
-//     required this.title,
-//     this.inputValidator,
-//     this.autoFocus = false,
-//     this.keyboardType,
-//     this.textInputAction = TextInputAction.next,
-//     this.controller,
-//     this.disableTextField = false,
-//     this.inputFormatter,
-//   });
-
-//   final String? Function(String? value, String label)? inputValidator;
-//   final bool autoFocus;
-//   final TextInputType? keyboardType;
-//   final String title;
-//   final TextInputAction textInputAction;
-//   final TextEditingController? controller;
-//   final bool disableTextField;
-//   final List<TextInputFormatter>? inputFormatter;
-//   @override
-//   Widget build(BuildContext context) {
-//     final thm = Theme.of(context);
-//     return TextFormField(
-//       enabled: !disableTextField,
-//       onTapOutside: (event) => FocusScope.of(context).unfocus(),
-//       validator: (value) => inputValidator!(value, title),
-//       autofocus: autoFocus,
-//       cursorColor: ColorConstants.black,
-//       keyboardType: keyboardType,
-//       textInputAction: textInputAction,
-//       controller: controller,
-//       inputFormatters: inputFormatter,
-//       readOnly: true,
-//       style: thm.textTheme.pMedium16Regular.copyWith(color: thm.colorScheme.appblack),
-//       decoration: InputDecoration(
-//         contentPadding: EdgeInsets.zero,
-//         alignLabelWithHint: true,
-//         prefixIconConstraints: const BoxConstraints(maxWidth: 16.0),
-//         prefixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
-//         suffixIcon: const Icon(Remix.arrow_down_s_line, size: 20),
-//         suffixIconConstraints: const BoxConstraints(maxWidth: 48.0, minWidth: 48.0),
-//         suffixIconColor: MaterialStateColor.resolveWith((states) => ColorConstants.gray600),
-//         labelText: title,
-//         floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray600)),
-//         labelStyle: MaterialStateTextStyle.resolveWith(
-//             (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray600))),
-//         enabledBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//         disabledBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
-//         errorBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//         focusedErrorBorder: OutlineInputBorder(
-//             borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
-//         focusedBorder:
-//             OutlineInputBorder(borderSide: BorderSide(color: thm.primaryColor), borderRadius: BorderRadius.circular(8.0)),
-//         errorStyle: const TextStyle(color: ColorConstants.danger500, fontSize: 10),
-//       ),
-//     );
-//   }
-// }
+  final String? Function(String? value, String label)? inputValidator;
+  final bool autoFocus;
+  final String hintText;
+  final TextInputType? keyboardType;
+  final Widget prefixIcon;
+  final String? title;
+  final TextInputAction textInputAction;
+  final TextEditingController? controller;
+  @override
+  Widget build(BuildContext context) {
+    final thm = Theme.of(context);
+    return TextFormField(
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      // validator: (value) => inputValidator!(value, title),
+      autofocus: autoFocus,
+      cursorColor: ColorConstants.black,
+      keyboardType: keyboardType,
+      textInputAction: textInputAction,
+      controller: controller,
+      style: thm.textTheme.pMedium16Regular.copyWith(color: ColorConstants.black),
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.zero,
+        alignLabelWithHint: true,
+        hintText: hintText,
+        hintStyle: MaterialStateTextStyle.resolveWith(
+            (states) => thm.textTheme.pSmall14Medium.merge(const TextStyle(color: ColorConstants.gray400))),
+        prefixIcon: prefixIcon,
+        prefixIconColor: MaterialStateColor.resolveWith(
+            (states) => states.contains(MaterialState.focused) ? thm.primaryColor : ColorConstants.gray400),
+        labelText: title,
+        floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray400)),
+        labelStyle: MaterialStateTextStyle.resolveWith(
+            (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray400))),
+        enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: ColorConstants.gray200), borderRadius: BorderRadius.circular(8.0)),
+        disabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: ColorConstants.gray200), borderRadius: BorderRadius.circular(8.0)),
+        errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: ColorConstants.danger500), borderRadius: BorderRadius.circular(8.0)),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: thm.primaryColor), borderRadius: BorderRadius.circular(8.0)),
+        errorStyle: const TextStyle(color: ColorConstants.danger500, fontSize: 10),
+      ),
+    );
+  }
+}
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
@@ -291,12 +185,12 @@ class SearchTextField extends StatelessWidget {
         prefixIconConstraints: const BoxConstraints(maxWidth: 16.0),
         prefixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
         // suffixIcon: const Icon(Remix.arrow_down_s_line, size: 20),
-        suffixIconColor: MaterialStateColor.resolveWith((states) => ColorConstants.gray600),
-        floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray600)),
+        suffixIconColor: MaterialStateColor.resolveWith((states) => ColorConstants.gray400),
+        floatingLabelStyle: thm.textTheme.pXsmall12Medium.merge(const TextStyle(color: ColorConstants.gray400)),
         labelStyle: MaterialStateTextStyle.resolveWith(
-            (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray600))),
+            (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray400))),
         enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: ColorConstants.gray600), borderRadius: BorderRadius.circular(8.0)),
+            borderSide: const BorderSide(color: ColorConstants.gray400), borderRadius: BorderRadius.circular(8.0)),
         disabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: ColorConstants.gray50), borderRadius: BorderRadius.circular(24.0)),
         errorBorder: OutlineInputBorder(
@@ -311,101 +205,114 @@ class SearchTextField extends StatelessWidget {
   }
 }
 
-// class CustomPlainTextFormField extends StatelessWidget {
-//   const CustomPlainTextFormField({
-//     Key? key,
-//     this.inputValidator,
-//     this.autoFocus = false,
-//     this.keyboardType,
-//     required this.hint,
-//     this.textInputAction = TextInputAction.next,
-//     this.controller,
-//     this.disableTextField = false,
-//     this.inputFormatters,
-//   }) : super(key: key);
+class CustomDropDownWidget extends StatelessWidget {
+  const CustomDropDownWidget({
+    super.key,
+    required this.hintText,
+  });
 
-//   final String? Function(String? value, String label)? inputValidator;
-//   final bool autoFocus;
-//   final TextInputType? keyboardType;
-//   final String hint;
-//   final TextInputAction textInputAction;
-//   final TextEditingController? controller;
-//   final bool disableTextField;
-//   final List<TextInputFormatter>? inputFormatters;
-//   @override
-//   Widget build(BuildContext context) {
-//     final thm = Theme.of(context);
-//     return TextFormField(
-//       onTapOutside: (event) => FocusScope.of(context).unfocus(),
-//       validator: (value) => inputValidator!(value, hint),
-//       autofocus: autoFocus,
-//       cursorColor: ColorConstants.black,
-//       keyboardType: keyboardType,
-//       textInputAction: textInputAction,
-//       controller: controller,
-//       enabled: !disableTextField,
-//       inputFormatters: inputFormatters,
-//       style: thm.textTheme.pMedium16Regular.copyWith(color: thm.colorScheme.appblack),
-//       decoration: InputDecoration(
-//         contentPadding: EdgeInsets.zero,
-//         prefixIconConstraints: const BoxConstraints(maxWidth: 16.0),
-//         prefixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
-//         suffixIconConstraints: const BoxConstraints(maxWidth: 16.0),
-//         suffixIcon: Container(constraints: const BoxConstraints(maxWidth: 16.0, maxHeight: 8.0)),
-//         alignLabelWithHint: true,
-//         hintText: hint,
-//         hintStyle: MaterialStateTextStyle.resolveWith(
-//             (states) => thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray600))),
-//         fillColor: ColorConstants.white,
-//         filled: true,
-//         border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8.0)), borderSide: BorderSide.none),
-//       ),
-//     );
-//   }
-// }
+  final String hintText;
 
-// class CustomCheckBox extends StatelessWidget {
-//   final Widget text;
-//   final String validationMsg;
-//   const CustomCheckBox({super.key, required this.text, required this.validationMsg});
+  @override
+  Widget build(BuildContext context) {
+    final thm = Theme.of(context);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final thm = Theme.of(context);
-//     return FormField<bool>(
-//       validator: (value) => (value == true) ? null : validationMsg,
-//       builder: (FormFieldState<bool> field) => Column(
-//         mainAxisSize: MainAxisSize.min,
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           Row(
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             children: [
-//               CircleAvatar(
-//                 radius: 8,
-//                 backgroundColor: Colors.transparent,
-//                 child: Checkbox(
-//                   shape: const CircleBorder(),
-//                   visualDensity: VisualDensity.compact,
-//                   fillColor: MaterialStateColor.resolveWith((states) => thm.primaryColor),
-//                   value: field.value ?? false,
-//                   isError: true,
-//                   onChanged: (value) {
-//                     field.didChange(value);
-//                   },
-//                 ),
-//               ),
-//               const SizedBox(width: 8.0),
-//               text,
-//             ],
-//           ),
-//           if (field.errorText != null)
-//             Padding(
-//               padding: const EdgeInsets.only(top: 4.0),
-//               child: Text(field.errorText ?? '', style: const TextStyle(color: ColorConstants.danger500, fontSize: 10)),
-//             ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+    return Theme(
+      data: ThemeData(
+        inputDecorationTheme: const InputDecorationTheme(
+          errorStyle: TextStyle(color: ColorConstants.danger500, fontSize: 10.0),
+        ),
+      ),
+      child: DropdownButtonFormField2(
+        decoration: InputDecoration(
+          isDense: true,
+          contentPadding: EdgeInsets.zero,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: const BorderSide(color: ColorConstants.gray200),
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: ColorConstants.gray200), borderRadius: BorderRadius.circular(8.0)),
+          disabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: ColorConstants.gray200), borderRadius: BorderRadius.circular(8.0)),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(color: thm.primaryColor),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: const BorderSide(color: ColorConstants.danger500),
+          ),
+        ),
+        isExpanded: true,
+        // validator: inputValidator != null ? (value) => inputValidator!(value, hintText) : null,
+        // onChanged: onChanged,
+        buttonStyleData: const ButtonStyleData(height: 48.0, padding: EdgeInsets.only(right: 16.0)),
+        iconStyleData: const IconStyleData(
+          icon: Icon(Remix.arrow_down_s_line, color: ColorConstants.gray400, size: 20),
+          iconSize: 20,
+        ),
+        // dropdownStyleData: DropdownStyleData(
+        //     decoration:
+        //         BoxDecoration(color: ColorConstants.darkBlueishGrey, borderRadius: BorderRadius.circular(8.0))),
+        hint:
+            Text(hintText, style: thm.textTheme.pMedium16Medium.merge(const TextStyle(color: ColorConstants.gray400))),
+        isDense: true,
+        value: 'value',
+        items: const [],
+      ),
+    );
+  }
+}
+
+class CustomCheckBox extends StatelessWidget {
+  final String text;
+  const CustomCheckBox({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final thm = Theme.of(context);
+    return FormField<bool>(
+      validator: (value) => (value == true) ? null : 'validationMsg',
+      builder: (FormFieldState<bool> field) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Theme(
+                data: Theme.of(context).copyWith(
+                  checkboxTheme: Theme.of(context).checkboxTheme.copyWith(
+                        splashRadius: 2.0,
+                        side: MaterialStateBorderSide.resolveWith(
+                          (states) =>
+                              BorderSide(color: (field.value ?? false) ? thm.primaryColor : ColorConstants.gray200),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(color: ColorConstants.gray200, width: 1.0),
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                      ),
+                ),
+                child: Checkbox(
+                  activeColor: thm.primaryColor,
+                  value: field.value ?? false,
+                  onChanged: (bool? value) {
+                    field.didChange(value);
+                  },
+                ),
+              ),
+              Text(text, style: const TextStyle(color: ColorConstants.gray600, fontSize: 16.0)),
+            ],
+          ),
+          if (field.errorText != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 4.0),
+              child: Text(field.errorText ?? '', style: const TextStyle(color: ColorConstants.danger500, fontSize: 10)),
+            ),
+        ],
+      ),
+    );
+  }
+}

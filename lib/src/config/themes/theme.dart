@@ -17,8 +17,8 @@ final ThemeData AppTheme = ThemeData(
     titleTextStyle: TextStyle(color: ColorConstants.black),
     surfaceTintColor: Colors.white,
     foregroundColor: ColorConstants.white,
-    shadowColor: ColorConstants.white,
-    elevation: 0.5,
+    shadowColor: Colors.transparent,
+    elevation: 0.0,
     scrolledUnderElevation: 0.5,
     backgroundColor: ColorConstants.white,
     actionsIconTheme: IconThemeData(color: ColorConstants.gray700, fill: 0.0),
@@ -47,7 +47,7 @@ final ThemeData AppTheme = ThemeData(
   ),
   bottomSheetTheme: const BottomSheetThemeData(
     constraints: BoxConstraints(maxWidth: double.maxFinite),
-    elevation: 0.5,
+    elevation: 0.0,
   ),
   textTheme: const TextTheme(),
   pageTransitionsTheme: const PageTransitionsTheme(
