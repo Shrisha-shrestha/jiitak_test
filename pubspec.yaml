@@ -30,6 +30,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router: ^8.2.0
+  provider: ^6.0.1
+  remixicon: ^1.0.0
+  flutter_svg: ^2.0.9
+  dotted_border: any
+  dropdown_button2: any
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,8 +65,27 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets\png\blog.png
+    - assets\png\blog2.png
+    - assets\png\star.png
+    - assets\png\map.png
+    - assets\png\image1.png
+    - assets\png\image2.png
+    - assets\png\image3.png
+    - assets\png\image4.png
+    - assets\png\image5.png
+    - assets\png\image6.png
+    - assets\png\image7.png
+    - assets\png\image8.png
+    - assets\png\image9.png
+    - assets\png\image10.png
+    - assets\png\image11.png
+
+
+
+
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -74,12 +99,18 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Noto Sans
+      fonts:
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Black.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Bold.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-ExtraBold.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-ExtraLight.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Light.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Medium.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Regular.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-SemiBold.ttf
+        - asset: assets\fonts\Noto_Sans_JP\NotoSansJP-Thin.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
