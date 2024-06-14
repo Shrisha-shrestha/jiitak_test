@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class BottomNavigationViewModel extends ChangeNotifier {
-  int _currentIndex = 0;
-  int get currentIndex => _currentIndex;
+class BottomNavigationController extends GetxController {
+  final RxInt _currentIndex = 0.obs;
 
-  set currentIndex(int value) {
-    _currentIndex = value;
-    notifyListeners();
+  int get currentIndex => _currentIndex.value;
+
+  set currentIndex(int val) {
+    _currentIndex.value = val;
+    update();
   }
 }

@@ -9,7 +9,7 @@ class AppRouter {
     routes: <GoRoute>[
       GoRoute(
         path: '/',
-        builder: (context, state) => const BottomNavigationView(),
+        builder: (context, state) =>  BottomNavigationView(),
         routes: <GoRoute>[
           GoRoute(
             path: 'details',
