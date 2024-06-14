@@ -10,7 +10,6 @@ class JiitakApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme,
       title: 'Jiitak',
-      // theme: context.watch<SwitchUserProvider>().currentUser == CurrentUser.employer ? employerTheme : jobseekerTheme,
       routerConfig: AppRouter.router,
     );
   }

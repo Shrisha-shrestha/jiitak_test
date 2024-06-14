@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jiitak_test/src/config/themes/color_constants.dart';
@@ -54,20 +53,22 @@ class DetailsView extends StatelessWidget {
                         children: [
                           Text('Mer キッチン',
                               style: resp.thm.textTheme.pMedium16Bold.copyWith(color: ColorConstants.white)),
-                          RichText(
-                            text: TextSpan(
-                              text: "現在の獲得数",
-                              style: resp.thm.textTheme.pSmall14Medium.copyWith(color: ColorConstants.white),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: ' 30 ',
-                                    style: resp.thm.textTheme.pLarge18Bold
-                                        .copyWith(color: ColorConstants.white, fontSize: 30.0)),
-                                TextSpan(
-                                    text: '個',
-                                    style: resp.thm.textTheme.pLarge18Regular
-                                        .copyWith(color: ColorConstants.white, fontSize: 20.0))
-                              ],
+                          Flexible(
+                            child: RichText(
+                              text: TextSpan(
+                                text: "現在の獲得数",
+                                style: resp.thm.textTheme.pSmall14Medium.copyWith(color: ColorConstants.white),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: ' 30 ',
+                                      style: resp.thm.textTheme.pLarge18Bold
+                                          .copyWith(color: ColorConstants.white, fontSize: 30.0)),
+                                  TextSpan(
+                                      text: '個',
+                                      style: resp.thm.textTheme.pLarge18Regular
+                                          .copyWith(color: ColorConstants.white, fontSize: 20.0))
+                                ],
+                              ),
                             ),
                           ),
                         ],

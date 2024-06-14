@@ -97,7 +97,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: '店舗外観', subtitle: '（最大3枚まで）'),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image1.png'),
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image1.png'),
@@ -107,7 +108,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: '店舗内観', subtitle: '（1枚〜3枚ずつ追加してください）'),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image2.png'),
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image2.png'),
@@ -117,7 +119,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: '料理写真', subtitle: '（1枚〜3枚ずつ追加してください）'),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image3.png'),
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image4.png'),
@@ -127,7 +130,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: 'メニュー写真', subtitle: '（1枚〜3枚ずつ追加してください）'),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image6.png'),
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image7.png'),
@@ -137,7 +141,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: '営業時間', subtitle: ''),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             SizedBox(width: 120.0, child: CustomDropDownWidget(hintText: '10 : 00')),
                             Padding(
@@ -150,7 +155,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: 'ランチ時間', subtitle: ''),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             SizedBox(width: 120.0, child: CustomDropDownWidget(hintText: '11 : 00')),
                             Padding(
@@ -189,7 +195,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         const SizedBox(height: 16.0),
                         const CustomTitleWidget(title: '予算', subtitle: ''),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             SizedBox(
                               width: 120.0,
@@ -250,7 +257,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                           ],
                         ),
                         const SizedBox(height: 4.0),
-                        const Row(
+                        const Wrap(
+                          runSpacing: 16.0,
                           children: [
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image9.png'),
                             CustomImageWidget(hasImage: true, imagePath: 'assets/png/image10.png'),

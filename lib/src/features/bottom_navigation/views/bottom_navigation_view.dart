@@ -16,7 +16,7 @@ class BottomNavigationView extends StatelessWidget {
     HomeView(),
     HomeView(),
   ];
-  final bottomNavigationController = Get.find<BottomNavigationController>();
+  final BottomNavigationController bottomNavigationController = Get.put(BottomNavigationController());
   @override
   Widget build(BuildContext context) {
     final resp = RespUtil(context);
@@ -85,10 +85,8 @@ class BottomNavigationView extends StatelessWidget {
         selectedItemColor: resp.thm.primaryColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Remix.search_line), activeIcon: Icon(Remix.search_line), label: 'さがす'),
-          BottomNavigationBarItem(
-              icon: Icon(Remix.suitcase_line), activeIcon: Icon(Remix.suitcase_fill), label: 'お仕事'),
-          BottomNavigationBarItem(
-              icon: Icon(Remix.chat_1_line), activeIcon: Icon(Remix.chat_1_fill), label: 'チャット '),
+          BottomNavigationBarItem(icon: Icon(Remix.suitcase_line), activeIcon: Icon(Remix.suitcase_fill), label: 'お仕事'),
+          BottomNavigationBarItem(icon: Icon(Remix.chat_1_line), activeIcon: Icon(Remix.chat_1_fill), label: 'チャット '),
           BottomNavigationBarItem(
               icon: Icon(Remix.account_circle_line), activeIcon: Icon(Remix.account_circle_fill), label: 'マイページ'),
         ],

@@ -36,6 +36,7 @@ dependencies:
   dotted_border: any
   dropdown_button2: any
   get: ^4.6.6
+  device_preview: any
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -81,10 +82,7 @@ flutter:
     - assets\png\image9.png
     - assets\png\image10.png
     - assets\png\image11.png
-
-
-
-
+    - assets\png\jiitak.png
 
   #   - images/a_dot_ham.jpeg
 
