@@ -42,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
         RichText(
           text: TextSpan(
             text: title,
-            style: thm.textTheme.pMedium16Regular,
+            style: thm.textTheme.pMedium16Regular.copyWith(color: ColorConstants.black),
             children: <TextSpan>[
               TextSpan(text: '*    ', style: thm.textTheme.pXsmall12Medium.copyWith(color: ColorConstants.danger400)),
             ],

@@ -116,7 +116,7 @@ class DetailsView extends StatelessWidget {
                                       itemCount: 15,
                                       itemBuilder: (context, index) {
                                         return Image.asset(
-                                          'assets/png/Star.png',
+                                          'assets/png/star.png',
                                           fit: BoxFit.cover,
                                         );
                                       },
